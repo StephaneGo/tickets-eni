@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Liste des tickets</h1>    
+
+        <% tickets.forEach(ticket => { %>
+            <div>
+                <h2><a href="/ticket/<%= ticket.id %>"><%= ticket.titre %></a></h2>
+                <h3><%= ticket.auteur %></h3>
+                <p><%= ticket.date_creation.toLocaleDateString("fr-FR", {hour: "2-digit", minute:"2-digit", second:"2-digit"}); %></p>
+                <p><%= ticket.description %></p>
+                <p><%= ticket.etat %></p>
+            </div>
+        <% }) %>
+
+</body>
+</html>
