@@ -24,9 +24,22 @@ let tickets = [{
         description: "Description du ticket 2",
         etat : "en cours"}];
 
+let idx = 3
+
 /* Routes */
 app.get(["/", "/tickets"], (req, res)=>{
     res.render("index", {tickets});
+});
+
+app.post("/tickets", (req, res)=>{
+    tickets.push({
+        id: idx++,
+        titre: req.body.titre,
+        auteur: req.body.auteur,
+        date_creation: new Date(),
+        description: req.body.description,
+        etat : "en cours"});
+    res.redirect("/tickets");
 });
 
 app.listen(port, () => {

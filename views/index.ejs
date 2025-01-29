@@ -8,6 +8,23 @@
 <body>
 <h1>Liste des tickets</h1>    
 
+    <h2>Ajouter un ticket</h2>
+    <form action="/tickets" method="POST">
+        <div>
+        <label for="titre">Titre</label>
+        <input type="text" name="titre" id="titre">
+        </div>
+        <div>
+        <label for="auteur">Auteur</label>
+        <input type="text" name="auteur" id="auteur">
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description">
+    </div>
+        <button type="submit">Ajouter</button>
+    </form>
+
         <% tickets.forEach(ticket => { %>
             <div>
                 <h2><a href="/ticket/<%= ticket.id %>"><%= ticket.titre %></a></h2>
